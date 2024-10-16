@@ -14,7 +14,7 @@ export const ToDoApp: React.FC = () => {
           <li>
             <div>
               <input type="checkbox" name="" />
-              <label htmlFor="">New to do</label>
+              <label>New to do</label>
             </div>
           </li>
         </ul>
