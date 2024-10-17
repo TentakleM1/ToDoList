@@ -9,6 +9,7 @@ export default defineConfig({
     alias: {
       'pages': path.resolve(__dirname, './src/pages' ),
       'features': path.resolve(__dirname, './src/features' ),
+      'shared': path.resolve(__dirname, './src/shared' ),
     }
   }
 })

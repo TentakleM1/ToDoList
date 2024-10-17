@@ -1,25 +1,16 @@
-import React from "react";
+import { FC } from "react";
 import { StyleToDoApp } from "./style";
-import { Footer } from "./components";
+import { Footer, Main } from "./components";
+import { InputContainer } from "features";
+import { TRootState, useSelector } from "shared";
 
-export const ToDoApp: React.FC = () => {
+export const ToDoApp: FC = () => {
+  const todos = useSelector((state: TRootState) => state.todolist.todos);
+
   return (
     <StyleToDoApp>
-      <header className="create__task">
-        <label className="toggle-all"></label>
-        <input type="text" />
-      </header>
-      <main>
-        <ul>
-          <li>
-            <div>
-              <input type="checkbox" name="" />
-              <label>New to do</label>
-            </div>
-          </li>
-        </ul>
-      </main>
-      <Footer />
+      <InputContainer toggle={true} />
+      {todos.length > 0 && <><Main /> <Footer /></>}  
     </StyleToDoApp>
   );
 };

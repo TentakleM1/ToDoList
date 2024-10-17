@@ -6,7 +6,6 @@ export const Info: React.FC = () => {
     <StyleInfo>
       <ul>
         <li>Double-click to edit a todo</li>
-        <li>Created by Sindre Sorhus</li>
         <li>Updated by the TodoMVC Team</li>
         <li>Part of TodoMVC</li>
       </ul>

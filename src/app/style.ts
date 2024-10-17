@@ -8,26 +8,32 @@ export const GlobalStyle = createGlobalStyle`
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
   }
 
-  h1 {
+  h1,ul {
+    padding: 0;
     margin: 0;
   }
 
   li {
     list-style: none;
   }
+
+  a {
+    color: inherit;
+    outline-color: none;
+    text-decoration: none;
+  }
   
 `;
 
 export const Wrapper = styled.section`
-    width: 550px;
+    max-width: 550px;
+    min-width: 310px;
     height: 100%;
     margin: 0 auto;
 
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 65px;
+    gap: 40px;
 
-    @media(min-width: 768px) {
-    }
 `;
