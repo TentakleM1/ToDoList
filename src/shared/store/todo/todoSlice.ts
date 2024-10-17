@@ -26,8 +26,26 @@ const todoSlice = createSlice({
         },
         todoCheck: (state: IInitialState, action: PayloadAction<{ id: number; completed: boolean }>) => {
             const { id, completed } = action.payload;
-            const newTodos = state.todos.filter(todo => todo.id !== id)
-            console.log(newTodos)
+            const newTodos = state.todos.map(todo => {
+                if (todo.id === id) {
+                    todo.completed = completed
+                }
+                return todo;
+            })
+            
+            state.todos = newTodos
+        },
+        todoDelete: (state: IInitialState, action: PayloadAction<number>) => {
+            const newTodos = state.todos.filter(todo => todo.id !== action.payload)
+            state.todos = newTodos
+        },
+        todoAllCheck: (state: IInitialState) => {
+            const newTodos = state.todos.map(todo => {
+                todo.completed = true;
+                return todo;
+            })
+
+            state.todos = newTodos
         }
     } 
 });
@@ -35,7 +53,9 @@ const todoSlice = createSlice({
 
 export const {
     todos,
-    todoCheck
+    todoCheck,
+    todoDelete,
+    todoAllCheck
 } = todoSlice.actions;
 
 export default todoSlice.reducer

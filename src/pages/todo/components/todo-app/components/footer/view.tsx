@@ -1,10 +1,10 @@
 import React from "react";
 import { StyleFooter } from "./style";
 
-export const Footer: React.FC = () => {
+export const Footer: React.FC = ({count}) => {
   return (
       <StyleFooter>
-        <span>1 items left!</span>
+        <span>{count} items left!</span>
         <ul>
           <li>
             <a href="#">All</a>

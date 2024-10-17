@@ -5,6 +5,7 @@ import { useSelector } from "shared"
 
 export const Main: React.FC = () => {
   const todos = useSelector(state => state.todolist.todos)
+
     return (
         <StyleMain>
         <ul>

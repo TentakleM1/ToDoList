@@ -10,7 +10,7 @@ export const ToDoApp: FC = () => {
   return (
     <StyleToDoApp>
       <InputContainer toggle={true} />
-      {todos.length > 0 && <><Main /> <Footer /></>}  
+      {todos.length > 0 && <><Main /> <Footer count={todos.length} /></>}  
     </StyleToDoApp>
   );
 };

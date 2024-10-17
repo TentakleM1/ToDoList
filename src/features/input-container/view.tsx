@@ -1,7 +1,7 @@
 import { ChangeEvent, KeyboardEvent, FC, useState } from "react";
 import { StyleInputContainer } from "./style";
 import { useDispatch } from "shared";
-import { todos } from "../../shared/store/todo/todoSlice";
+import { todoAllCheck, todos } from "../../shared/store/todo/todoSlice";
 
 interface IInputContainer {
   toggle?: boolean;
@@ -30,10 +30,14 @@ export const InputContainer: FC<IInputContainer> = ({ toggle }) => {
     setTask("");
   };
 
+  const handleAllCheck = () => {
+    dispatch(todoAllCheck())
+  }
+
   return (
     <StyleInputContainer className="create__task">
       <form onKeyDown={handleCreateTask}>
-        {toggle && <label className="toggle-all"></label>}
+        {toggle && <label  onClick={handleAllCheck} className="toggle-all"></label>}
         <input
           type="text"
           placeholder="What needs to be done?"
