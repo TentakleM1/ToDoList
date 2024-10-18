@@ -1,4 +1,4 @@
-import { ChangeEvent, KeyboardEvent, FC, useState, useEffect } from "react";
+import { ChangeEvent, KeyboardEvent, FC, useState } from "react";
 import { StyleInputContainer } from "./style";
 import { changeTodo, useDispatch } from "shared";
 import { todoAllCheck, todos } from "shared";
@@ -18,20 +18,6 @@ export const InputContainer: FC<IInputContainer> = ({ id, toggle, value, blur })
     e.preventDefault();
     setTask(e.target.value);
   };
-
-  useEffect(() => {
-
-    const handleTest = (e: { key: unknown; }) => {
-      alert(e.key)
-
-    }
-
-    window.addEventListener('keydown', handleTest)
-
-    return () => {
-      window.removeEventListener('keydown', handleTest)
-    }
-  }, [])
 
   const handleCreateTask = (e: KeyboardEvent<HTMLFormElement>) => {
     if (e.code !== "Enter" || !task || e.key !== 'Enter') {
