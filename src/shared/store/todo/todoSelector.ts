@@ -1,23 +1,20 @@
 import { createSelector } from "reselect";
-import { TTodos } from "./type";
+import { TRootState } from "../store";
 
 export const todoSelectCategory = createSelector(
   [
-    (state: TTodos) => {
-      return state;
+    (state: TRootState) => {
+      return state.todolist.todos;
     },
-    (state: TTodos, category: string) => category
+    (state: TRootState, category: string) => category,
   ],
   (todos, category) => {
-    console.log(todos);
-  //   if(category === 'active') {
-  //       return todos.filter((task) => task.completed === false);
-
-  //   }
-  //   if(category === 'completed') {
-  //       return todos.filter((task) => task.completed === true);
-
-  //   }
-  //   return todos;
-  // }
+    if (category === "active") {
+      return {tasks: todos.filter((task) => task.completed === false), length: todos.length}
+    }
+    if (category === "completed") {
+      return {tasks: todos.filter((task) => task.completed === true), length: todos.length}
+    }
+    return {tasks: todos, length: todos.length};
+  }
 );
