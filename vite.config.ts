@@ -7,6 +7,7 @@ export default defineConfig({
   plugins: [react()],
   resolve: {
     alias: {
+      'images': path.resolve(__dirname, './src/assets/img'),
       'pages': path.resolve(__dirname, './src/pages' ),
       'features': path.resolve(__dirname, './src/features' ),
       'shared': path.resolve(__dirname, './src/shared' ),

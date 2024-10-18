@@ -1,11 +1,13 @@
-import React from "react"
+import {FC} from "react"
 import { StyleMain } from "./style"
 import { Task } from "./components"
-import { useSelector } from "shared"
+import { TTodos } from "shared"
 
-export const Main: React.FC = () => {
-  const todos = useSelector(state => state.todolist.todos)
+interface IMain {
+  todos: TTodos
+}
 
+export const Main: FC<IMain> = ({ todos }) => {
     return (
         <StyleMain>
         <ul>

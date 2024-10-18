@@ -1,12 +1,9 @@
-import { FC } from "react";
+import { FC, useState } from "react";
 import { StyleLi } from "./style";
 import { useDispatch } from "shared";
-import {
-  todoCheck,
-  todoDelete,
-} from "../../../../../../../../shared/store/todo/todoSlice";
-// import { InputContainer } from "features";
-
+import { todoCheck, todoDelete } from "shared";
+import { InputContainer } from "features";
+import { deleteImg, writeImg } from "images";
 interface ITaskProps {
   id: number;
   completed: boolean;
@@ -14,9 +11,10 @@ interface ITaskProps {
 }
 
 export const Task: FC<ITaskProps> = ({ id, completed, task }) => {
+  const [change, setChange] = useState(false);
   const dispatch = useDispatch();
 
-  const handle = () => {
+  const handleCheck = () => {
     dispatch(todoCheck({ id: id, completed: !completed }));
   };
 
@@ -24,20 +22,40 @@ export const Task: FC<ITaskProps> = ({ id, completed, task }) => {
     dispatch(todoDelete(id));
   };
 
+  const handleChangeTodo = () => {
+    setChange(!change);
+  };
+
+  const handleBlut = () => {
+    setChange(!change);
+  };
+
   return (
     <StyleLi>
-      <div className="task-container">
-        <input
-          type="checkbox"
-          className="checkbox"
-          name=""
-          onChange={handle}
-          checked={completed}
-        />
-        <label>{completed ? <s>{task}</s> : task}</label>
-        <button onClick={handleDeleteTodo}>Delete</button>
-      </div>
-      {/* <InputContainer /> */}
+      {change ? (
+        <InputContainer id={id} value={task} blur={handleBlut} />
+      ) : (
+        <>
+          <div className="task-container">
+            <input
+              type="checkbox"
+              className="checkbox"
+              name=""
+              onChange={handleCheck}
+              checked={completed}
+            />
+            <label>{completed ? <s>{task}</s> : task}</label>
+            <div>
+              <button onClick={handleChangeTodo}>
+                <img src={writeImg} alt="" />
+              </button>
+              <button onClick={handleDeleteTodo}>
+                <img src={deleteImg} alt="" />
+              </button>
+            </div>
+          </div>
+        </>
+      )}
     </StyleLi>
   );
 };
