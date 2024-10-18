@@ -20,7 +20,7 @@ export const InputContainer: FC<IInputContainer> = ({ id, toggle, value, blur })
   };
 
   const handleCreateTask = (e: KeyboardEvent<HTMLFormElement>) => {
-    if (e.code !== "Enter" || !task) {
+    if (e.code !== "Enter" || !task || e.key !== 'Enter') {
       return;
     }
     e.preventDefault();
