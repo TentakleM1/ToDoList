@@ -21,11 +21,12 @@
     "noFallthroughCasesInSwitch": true,
 
     "paths": {
-      "images": ["./src/assets/img"],
+      "icon": ["./public/icon"],
       "pages": ["./src/pages"],
-      "features": ["./src/features"],
       "shared": ["./src/shared"],
+      "store": ["./src/store"],
+      "components": ["./src/components"],
     }
   },
-  "include": ["src"]
+  "include": ["src", "public/icon"]
 }

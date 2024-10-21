@@ -1,1 +1,1 @@
-export { ToDoList } from './view';
+export { ToDoList } from './todo-list';

@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
  
 export const GlobalStyle = createGlobalStyle`
   body {
@@ -6,6 +6,18 @@ export const GlobalStyle = createGlobalStyle`
     padding: 0;
     background: #f5f5f5;
     font: 14px 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  }
+
+  #root {
+    max-width: 550px;
+    min-width: 310px;
+    height: 100%;
+    margin: 0 auto;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
   }
 
   h1,ul {
@@ -23,17 +35,4 @@ export const GlobalStyle = createGlobalStyle`
     text-decoration: none;
   }
   
-`;
-
-export const Wrapper = styled.section`
-    max-width: 550px;
-    min-width: 310px;
-    height: 100%;
-    margin: 0 auto;
-
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 40px;
-
 `;

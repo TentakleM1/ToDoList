@@ -1,2 +1,2 @@
-export { ToDoApp } from './todo-app';
-export { Info } from './info';
+export { ToDoApp } from './todo-app/todo-app';
+export { Info } from './info/Info';
